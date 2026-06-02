@@ -95,10 +95,16 @@
                 <span>$<span id="total-precio">0.00</span></span>
             </div>
             
-            <div id="componente-rastreo-ingrid" class="bloque-integrante" style="border-color: #3498db;">
-                <h4>🚚 Rastreo de Pedido</h4>
-                <small style="color: #7f8c8d; font-style: italic;">[Espacio asignado para Ingrid]</small>
-            </div>
+            <div id="componente-rastreo-ingrid" class="bloque-integrante" style="border: 1px solid #3498db; padding: 15px; border-radius: 8px; background-color: #f4f9fd; margin-top: 15px;">
+<h4 style="color: #2980b9; margin-top: 0;">🚚 Rastreo de Pedido</h4>
+<form id="form-rastreo" onsubmit="event.preventDefault(); procesarRastreo();">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<input type="text" id="num-guia" placeholder="Número de guía o pedido (Ej: DT-9832)" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+<button type="submit" style="background-color: #3498db; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">Rastrear Envío</button>
+</div>
+</form>
+<div id="resultado-rastreo" style="margin-top: 10px; font-size: 12px; display: none; color: #27ae60; font-weight: bold;"></div>
+</div>
             
         </aside>
 
