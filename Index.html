@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Delicias & Postres - Entorno Demo</title>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>🧁 Tienda: Delicias & Postres</h1>
+            <p>Proyecto demo de componentes compartidos.</p>
+        </div>
+
+        <div id="componente-sucursales-jade" style="background-color: #fff; border: 1px solid #ebd4cb; padding: 10px 15px; border-radius: 8px;">
+            <label style="font-weight: bold; color: #8c4f6e; font-size: 14px;">📍 Sucursal:</label>
+            <select autocomplete="off" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;">
+                <option value="">Selecciona sucursal</option>
+                <option value="jerez">León - Planta Jardines de Jerez</option>
+                <option value="escobedo">León - Mariano Escobedo</option>
+                <option value="panorama">León - Panorama</option>
+                <option value="ibero">León - Blvd. Morelos (Ibero)</option>
+                <option value="marfil">Guanajuato - Marfil</option>
+                <option value="orense">Irapuato - Plaza Orense</option>
+                <option value="delta">Irapuato - Plaza Delta</option>
+                <option value="slp">San Luis Potosí - Himalaya</option>
+            </select>
+         </div>
+    </header>
+
+    <main class="main-container">
+        
+        <div>
+            <div class="grid-postres">
+                <div class="postre-card">
+                    <div class="postre-img">🍰</div>
+                    <h3 class="postre-name">Pastel Tres Leches</h3>
+                    <p class="postre-price">$450.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Pastel Tres Leches', 450)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🍰</div>
+                    <h3 class="postre-name">Cheesecake Frutos Rojos</h3>
+                    <p class="postre-price">$380.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake Frutos Rojos', 380)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🧁</div>
+                    <h3 class="postre-name">Cupcake Red Velvet</h3>
+                    <p class="postre-price">$45.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Cupcake Red Velvet', 45)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🥧</div>
+                    <h3 class="postre-name">Tarta de Limón</h3>
+                    <p class="postre-price">$340.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Tarta de Limón', 340)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🍮</div>
+                    <h3 class="postre-name">Chocoflan Casero</h3>
+                    <p class="postre-price">$280.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Chocoflan Casero', 280)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🍪</div>
+                    <h3 class="postre-name">Galletas de Chispas (6 pzs)</h3>
+                    <p class="postre-price">$120.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Galletas de Chispas (6 pzs)', 120)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🍬</div>
+                    <h3 class="postre-name">Caja de Macarons</h3>
+                    <p class="postre-price">$290.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Caja de Macarons', 290)">Agregar</button>
+                </div>
+                <div class="postre-card">
+                    <div class="postre-img">🍫</div>
+                    <h3 class="postre-name">Brownie con Nuez</h3>
+                    <p class="postre-price">$55.00</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Brownie con Nuez', 55)">Agregar</button>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <h3>🛒 Carrito de Compras</h3>
+            <ul id="lista-carrito">
+                <span id="carrito-vacio" style="color: #95a5a6; font-style: italic;">El carrito está vacío.</span>
+            </ul>
+            <div class="total-section">
+                <span>Total:</span>
+                <span>$<span id="total-precio">0.00</span></span>
+            </div>
+            
+            <div id="componente-rastreo-ingrid" class="bloque-integrante" style="border-color: #3498db;">
+                <h4>🚚 Rastreo de Pedido</h4>
+                <small style="color: #7f8c8d; font-style: italic;">[Espacio asignado para Ingrid]</small>
+            </div>
+            
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Delicias & Postres Studio. Todos los derechos reservados.</p>
+        
+        <div id="componente-bolsa-argentina" class="bloque-integrante" style="border-color: #2ecc71; max-width: 400px; margin: 20px auto 0 auto;">
+            <h4>💼 Bolsa de Trabajo</h4>
+            <small style="color: #7f8c8d; font-style: italic;">[Espacio asignado para Argentina]</small>
+        </div>
+    </footer>
+
+    <script>
+        let total = 0;
+        const listaCarrito = document.getElementById('lista-carrito');
+        const totalPrecioTxt = document.getElementById('total-precio');
+        const carritoVacioTxt = document.getElementById('carrito-vacio');
+
+        function agregarAlCarrito(nombre, precio) {
+            if (carritoVacioTxt) {
+                carritoVacioTxt.style.display = 'none';
+            }
+
+            const nuevoItem = document.createElement('li');
+            nuevoItem.textContent = `${nombre} (-$${precio}.00)`;
+            listaCarrito.appendChild(nuevoItem);
+
+            total += precio;
+            totalPrecioTxt.textContent = total.toFixed(2);
+        }
+
+        // Lógica reutilizada para el rastreo de Ingrid
+        function procesarRastreo() {
+            const guia = document.getElementById('num-guia').value;
+            const resultado = document.getElementById('resultado-rastreo');
+            resultado.style.display = 'block';
+            resultado.style.color = '#e67e22';
+            resultado.textContent = `🔍 Buscando guía ${guia}...`;
+            
+            setTimeout(() => {
+                resultado.style.color = '#27ae60';
+                resultado.textContent = `📦 ¡Pedido encontrado! Estatus: En ruta de entrega.`;
+            }, 1200);
+        }
+    </script>
+
+</body>
+</html>
